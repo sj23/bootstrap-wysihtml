@@ -1,8 +1,8 @@
 {
-    "name": "bootstrap-wysihtml5",
+    "name": "bootstrap-wysihtml",
     "version": "0.1.0",
-    "main": ["src/bootstrap-wysihtml5.css", "src/bootstrap-wysihtml5.js"],
+    "main": ["src/bootstrap-wysihtml.css", "src/bootstrap-wysihtml.js"],
     "dependencies": {
-        "wysihtml5": "~0.3.0"
+        "wysihtml": "~0.6.0-beta" 
     }
 }

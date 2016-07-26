@@ -15,19 +15,20 @@ require 'rake'
 require 'uglifier'
 
 task :default do
-    version = File.open(File.join(ROOT, 'VERSION')).read
-    output_path = File.join(ROOT, "dist")
+  version = File.open(File.join(ROOT, 'VERSION')).read.strip
+  output_path = File.join(ROOT, "dist")
 
-    js_input_path = File.join('src', 'bootstrap-wysihtml5.js')
-    css_input_path = File.join('src', 'bootstrap-wysihtml5.css')
+  js_input_path = File.join('src', 'bootstrap-wysihtml.js')
+  css_input_path = File.join('src', 'bootstrap-wysihtml.css')
 
-    js_output_path = File.join(output_path, "bootstrap-wysihtml5-#{version}.js")
-    minified_js_output_path = File.join(output_path, "bootstrap-wysihtml5-#{version}.min.js")
-	css_output_path = File.join(output_path, "bootstrap-wysihtml5-#{version}.css")
+  js_output_path = File.join(output_path, "bootstrap-wysihtml-#{version}.js")
+  minified_js_output_path = File.join(output_path, "bootstrap-wysihtml-#{version}.min.js")
+  css_output_path = File.join(output_path, "bootstrap-wysihtml-#{version}.css")
 
-    minified_js = Uglifier.compile(File.read(js_input_path))
+  minified_js = Uglifier.compile(File.read(js_input_path))
      
-    File.open(minified_js_output_path, 'w') { |f| f.write(minified_js) } 
-    File.open(js_output_path, 'w') { |f| f.write(File.read(js_input_path)) } 
-    File.open(css_output_path, 'w') { |f| f.write(File.read(css_input_path)) }
+  File.open(minified_js_output_path, 'w') { |f| f.write(minified_js) } 
+  File.open(js_output_path, 'w') { |f| f.write(File.read(js_input_path)) } 
+  File.open(css_output_path, 'w') { |f| f.write(File.read(css_input_path)) }
 end
+
