@@ -1,32 +1,32 @@
-**This repo is no longer maintained. "bootstrap3-wysiwyg":https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg is much better**
-
 h1. Overview
 
-Bootstrap-wysihtml5 is a javascript plugin that makes it easy to create simple, beautiful wysiwyg editors with the help of "wysihtml5":https://github.com/xing/wysihtml5 and "Twitter Bootstrap":http://twitter.github.com/bootstrap/.
+Bootstrap-wysihtml is a javascript plugin that makes it easy to create simple, beautiful wysiwyg editors with the help of "wysihtml":https://github.com/Voog/wysihtml and "Twitter Bootstrap":http://twitter.github.com/bootstrap/.
+Forked from "bootstrap-wysihtml5":http://jhollingworth.github.com/bootstrap-wysihtml5/, replaced unmaintained "wysihtml5":https://github.com/xing/wysihtml5 with "wysihtml":https://github.com/Voog/wysihtml
 
 h1. Examples
 
-* "http://jhollingworth.github.com/bootstrap-wysihtml5":http://jhollingworth.github.com/bootstrap-wysihtml5/
+* "https://sj23.github.io/bootstrap-wysihtml":https://sj23.github.io/bootstrap-wysihtml/
 
 h1. Quick Start
 
-If you are using rails use the "bootstrap-wysihtml5-rails gem":http://rubygems.org/gems/bootstrap-wysihtml5-rails.
+ -If you are using rails use the "bootstrap-wysihtml5-rails gem":http://rubygems.org/gems/bootstrap-wysihtml5-rails.- 
 
 <pre>
-gem install bootstrap-wysihtml5-rails
+ -gem install bootstrap-wysihtml5-rails- 
 </pre>
 
-Otherwise, download "the latest version of bootstrap-wysihtml5":https://github.com/jhollingworth/bootstrap-wysihtml5/downloads.
+ -Otherwise, download "the latest version of bootstrap-wysihtml5":https://github.com/jhollingworth/bootstrap-wysihtml5/downloads.- 
 
 h2. Files to reference
 
 <pre>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap-wysihtml5.css"></link>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-wysihtml.css"></link>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"></link>
-<script src="js/wysihtml5-0.3.0.js"></script>
+<script src="js/wysihtml.js"></script>
+<script src="js/wysihtml.toolbar.js"></script>
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-wysihtml5.js"></script>
+<script src="js/bootstrap-wysihtml.js"></script>
 </pre>
 
 h2. Usage
@@ -34,7 +34,7 @@ h2. Usage
 <pre>
 <textarea id="some-textarea" placeholder="Enter text ..."></textarea>
 <script type="text/javascript">
-	$('#some-textarea').wysihtml5();
+	$('#some-textarea').wysihtml();
 </script>
 </pre>
 
@@ -48,10 +48,10 @@ h1. Advanced
 
 h2. Options
 
-An options object can be passed in to .wysihtml5() to configure the editor:
+An options object can be passed in to .wysihtml() to configure the editor:
 
 <pre>
-$('#some-textarea').wysihtml5({someOption: 23, ...})
+$('#some-textarea').wysihtml({someOption: 23, ...})
 </pre>
 
 h3. Buttons
@@ -59,7 +59,7 @@ h3. Buttons
 To override which buttons to show, set the appropriate flags:
 
 <pre>
-$('#some-textarea').wysihtml5({
+$('#some-textarea').wysihtml({
 	"font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
 	"emphasis": true, //Italics, bold, etc. Default true
 	"lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
@@ -79,7 +79,7 @@ For example, the default template used for the editHtml mode button looks like t
 <pre>
 <li>
   <div class='btn-group'>
-    <a class='btn" + size + "' data-wysihtml5-action='change_view' title='" + locale.html.edit + "'><i class='icon-pencil'></i></a>"
+    <a class='btn" + size + "' data-wysihtml-action='change_view' title='" + locale.html.edit + "'><i class='icon-pencil'></i></a>"
   </div>
 </li>
 </pre>
@@ -91,14 +91,14 @@ var myCustomTemplates = {
   html : function(locale) {
     return "<li>" +
            "<div class='btn-group'>" +
-           "<a class='btn' data-wysihtml5-action='change_view' title='" + locale.html.edit + "'>HTML</a>" +
+           "<a class='btn' data-wysihtml-action='change_view' title='" + locale.html.edit + "'>HTML</a>" +
            "</div>" +
            "</li>";
   }
 }
 
 // pass in your custom templates on init
-$('#some-textarea').wysihtml5({
+$('#some-textarea').wysihtml({
    customTemplates: myCustomTemplates
 });
 </pre>
@@ -112,17 +112,17 @@ h3. Stylesheets
 It is possible to supply a number of stylesheets for inclusion in the editor `<iframe>`:
 
 <pre>
-$('#some-textarea').wysihtml5({
+$('#some-textarea').wysihtml({
 	"stylesheets": ["/path/to/editor.css"]
 });
 </pre>
 
 h3. Events
 
-Wysihtml5 exposes a "number of events":https://github.com/xing/wysihtml5/wiki/Events. You can hook into these events when initialising the editor:
+Wysihtml exposes a "number of events":https://github.com/xing/wysihtml5/wiki/Events. You can hook into these events when initialising the editor:
 
 <pre>
-$('#some-textarea').wysihtml5({
+$('#some-textarea').wysihtml({
 	"events": {
 		"load": function() { 
 			console.log("Loaded!");
@@ -143,7 +143,7 @@ h3. Parser Rules
 If you find the editor is stripping out tags or attributes you need, then you'll want to extend (or replace) parserRules.  This example extends the defaults to allow the <code><strong></code> and <code><em></code> tags, and the class "middle":
 
 <pre>
-$('#some-textarea').wysihtml5('deepExtend', {
+$('#some-textarea').wysihtml('deepExtend', {
   parserRules: {
     classes: {
       "middle": 1
@@ -156,43 +156,43 @@ $('#some-textarea').wysihtml5('deepExtend', {
 });
 </pre>
 
-There's quite a bit that can be done with parserRules; see "wysihtml5's advanced parser ruleset":https://github.com/xing/wysihtml5/blob/master/parser_rules/advanced.js for details.  bootstrap-wysihtml5's default parserRules can be found "in the source":https://github.com/jhollingworth/bootstrap-wysihtml5/blob/master/src/bootstrap-wysihtml5.js (just search for 'parserRules' in the file).
+There's quite a bit that can be done with parserRules; see "wysihtml5's advanced parser ruleset":https://github.com/xing/wysihtml5/blob/master/parser_rules/advanced.js for details.  bootstrap-wysihtml5's default parserRules can be found "in the source":https://github.com/sj23/bootstrap-wysihtml/blob/master/src/bootstrap-wysihtml.js (just search for 'parserRules' in the file).
 
 h3. Defaults
 
-You can change bootstrap-wysihtml5's defaults by altering:
+You can change bootstrap-wysihtml's defaults by altering:
 
 <pre>
-$.fn.wysihtml5.defaultOptions
+$.fn.wysihtml.defaultOptions
 </pre>
 
-This object has the same structure as the options object you pass in to .wysihtml5().  You can revert to the original defaults by calling:
+This object has the same structure as the options object you pass in to .wysihtml().  You can revert to the original defaults by calling:
 
 <pre>
-$(this).wysihtml5('resetDefaults') 
+$(this).wysihtml('resetDefaults') 
 </pre> 
 
 Operations on the defaults are not thread-safe; if you're going to change the defaults, you probably want to do it only once, after you load the bootstrap-wysihtml plugin and before you start instantiating your editors.
 
-h2. The underlying wysihtml5 object
+h2. The underlying wysihtml object
 
-You can access the "wysihtml5 editor object":https://github.com/xing/wysihtml5 like this:
+You can access the "wysihtml editor object":https://github.com/xing/wysihtml5 like this:
 
 <pre>
-var wysihtml5Editor = $('#some-textarea').data("wysihtml5").editor;
-wysihtml5Editor.composer.commands.exec("bold");
+var wysihtmlEditor = $('#some-textarea').data("wysihtml").editor;
+wysihtmlEditor.composer.commands.exec("bold");
 </pre>
 
 
 h2. I18n
 
-You can use Bootstrap-wysihtml5 in other languages. There are some translations available in the src/locales directory. You can include your desired one after the plugin and pass its key to the editor. Example:
+You can use bootstrap-wysihtml in other languages. There are some translations available in the src/locales directory. You can include your desired one after the plugin and pass its key to the editor. Example:
 
 <pre>
-<script src="src/locales/bootstrap-wysihtml5.pt-BR.js"></script>
+<script src="src/locales/bootstrap-wysihtml.pt-BR.js"></script>
 <script type="text/javascript">
-  $('#some-textarea').wysihtml5({locale: "pt-BR"});
+  $('#some-textarea').wysihtml({locale: "pt-BR"});
 </script>
 </pre>
 
-It is possible to use custom translations as well. Just add a new key to $.fn.wysihtml5.locale before calling the editor constructor.
+It is possible to use custom translations as well. Just add a new key to $.fn.wysihtml.locale before calling the editor constructor.
