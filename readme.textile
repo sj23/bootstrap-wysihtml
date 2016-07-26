@@ -12,7 +12,7 @@ h1. Quick Start
  -If you are using rails use the "bootstrap-wysihtml5-rails gem":http://rubygems.org/gems/bootstrap-wysihtml5-rails.- 
 
 <pre>
- -gem install bootstrap-wysihtml5-rails- 
+gem install bootstrap-wysihtml5-rails
 </pre>
 
  -Otherwise, download "the latest version of bootstrap-wysihtml5":https://github.com/jhollingworth/bootstrap-wysihtml5/downloads.- 
@@ -34,7 +34,7 @@ h2. Usage
 <pre>
 <textarea id="some-textarea" placeholder="Enter text ..."></textarea>
 <script type="text/javascript">
-	$('#some-textarea').wysihtml();
+  $('#some-textarea').wysihtml();
 </script>
 </pre>
 
@@ -60,13 +60,13 @@ To override which buttons to show, set the appropriate flags:
 
 <pre>
 $('#some-textarea').wysihtml({
-	"font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
-	"emphasis": true, //Italics, bold, etc. Default true
-	"lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
-	"html": false, //Button which allows you to edit the generated HTML. Default false
-	"link": true, //Button to insert a link. Default true
-	"image": true, //Button to insert an image. Default true,
-	"color": false //Button to change color of font  
+  "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+  "emphasis": true, //Italics, bold, etc. Default true
+  "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+  "html": false, //Button which allows you to edit the generated HTML. Default false
+  "link": true, //Button to insert a link. Default true
+  "image": true, //Button to insert an image. Default true,
+  "color": false //Button to change color of font  
 });
 </pre>
 
@@ -113,7 +113,7 @@ It is possible to supply a number of stylesheets for inclusion in the editor `<i
 
 <pre>
 $('#some-textarea').wysihtml({
-	"stylesheets": ["/path/to/editor.css"]
+  "stylesheets": ["/path/to/editor.css"]
 });
 </pre>
 
@@ -123,14 +123,14 @@ Wysihtml exposes a "number of events":https://github.com/xing/wysihtml5/wiki/Eve
 
 <pre>
 $('#some-textarea').wysihtml({
-	"events": {
-		"load": function() { 
-			console.log("Loaded!");
-		},
-		"blur": function() { 
-			console.log("Blured");
-		}
-	}
+  "events": {
+    "load": function() { 
+      console.log("Loaded!");
+    },
+    "blur": function() { 
+      console.log("Blured");
+    }
+  }
 });
 </pre>
 
